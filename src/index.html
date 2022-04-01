@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MP-首页</title>
+    
+   <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_3184816_786p2zvhacv.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_3192948_5sapm2hj02h.css">
+  </head>
+ 
+<style>
+/*白天款*/
+.button-right{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 300px;
+}
+
+   .button-right a{
+/*布局,右边和subnav*/
+ display: block;
+  text-decoration: none;
+  transform: translate(-50%,-50%);
+  padding: 10px 15px;
+  margin: 0 15px;
+  border: 1px  solid #F571C5;
+  border-radius: 3px;
+  color:#F571C5;
+ background-color:transparent;
+  letter-spacing: 2px;
+  transition: 0.5s;
+ /* box-shadow: 0 5px 5px #cdc4f3;*/
+}
+
+.button-right a:hover{
+  /*颜色有点艳俗*/
+  background: linear-gradient(to right top ,#6333e9,#F571C5);
+  color:aliceblue;
+/*  box-shadow:0 5px 5px #978db9 ;*/
+}
+/*蓝色款*/
+
+
+  </style>
+  <body style="background-color: #141415;">
+<!---左侧侧边栏白色版本-->
+<!--阴影颜色可以再浅一点-->
+<!---style="background-color:#fff;box-shadow: 0 10px 20px#cdc4f3-->
+
+<div class="subnav"  z-index="999">
+  <ul>
+  <li><a href="./index.html?id=0"><i class="iconfont icon-home-fill"></i><span>返回首页</span></a></li>
+  <li><a href="./html/lishi.html?id=1"><i class="iconfont icon-lishixiao" ></i><span>历史记录</span></a></li>
+  <li ><a href="./html/yongli.html?id=2" ><i class="iconfont icon-test-case-secondary" ></i><span>用例生成</span></a></li>
+  <li ><a href="./html/chaxun.html?id=3"><i class="iconfont icon-chaxun"></i><span>正交表查询</span></a></li></li>
+
+</ul>
+<!---<div>
+  <img src="#" alt="" style="width: 150px;height: 100px;background-color: #fff;margin-left:15px;margin-top:50px;">
+</div>--->
+</div>
+<div class="right" >
+  <div class="img" style="background-color:transparent;opacity:0.5;position: absolute;display: block;top:100px;left:170px;right:0;width :600px;height: 300px;object-fit: cover;border-radius: 10px;" >
+   <img src="./image/logo1.png
+   " value="img" >
+   </div>
+
+   <div class="button-right">
+    <a href="#" id="aboutme">关于我们</a>                                                       
+    <a href="#" id="environment">环境监测</a>
+  </div>
+  </div>
+
+  </div>
+
+
+<script>
+var aboutme = document.getElementById('aboutme')
+aboutme.onclick = function(){
+  window.open('./html/about me.html')
+}
+</script>
+
+</html>

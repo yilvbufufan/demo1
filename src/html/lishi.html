@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP-历史记录</title>
+ <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_3184816_786p2zvhacv.css">
+</head>
+<style>
+   body{
+        width: 100%;
+        height: 100%;
+        display: flex;
+    }
+
+::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+	color: transparent;
+}
+
+   .r-l{
+        min-width: 120px; 
+        background-color:#0F0E11;
+    }
+   .r-r{
+        flex: 1;
+        background-color:#141415;
+        margin-right: 40px;
+
+    }
+    .r-r .head{
+      top: 0;
+      width: 100%;
+      flex: 1;
+      height: 50px;
+      text-align: center;
+      background-color:#1b1a1a;
+      /*border-bottom:  2px #a5a5a5;*/
+      overflow: hidden;
+      color: aliceblue;
+    }
+   
+
+  .r-r a {
+    float: right;
+      top: 30px;
+      right: 10px; 
+ display: block;
+  text-decoration: none;
+  transform: translate(-50%,-50%);
+  padding: 6px 5px;
+  border-radius: 10px;
+  border: 1px solid #3DB8FF;
+color: #3DB8FF;
+ background-color:transparent;
+  letter-spacing: 2px;
+  transition: 0.5s;
+  white-space: nowrap;
+
+}
+
+ a:hover{
+  overflow: hidden;
+  /*或者纯色*/
+  background: linear-gradient(to right top,#4453fd,#3DB8FF); 
+  color:aliceblue;
+}
+
+</style>
+<body>
+
+  <div class="subnav" z-index = "999">
+    <ul>
+    <li><a href="../index.html?id=0"><i class="iconfont icon-home-fill"></i><span>返回首页</span></a></li>
+    <li><a href="./lishi.html?id=1" ><i class="iconfont icon-lishixiao"></i><span>历史记录</span></a></li>
+    <li ><a href="./yongli.html?id=2"><i class="iconfont icon-test-case-secondary"></i><span>用例生成</span></a></li>
+    <li ><a href="../html/chaxun.html?id=3"><i class="iconfont icon-chaxun"></i><span>正交表查询</span></a></li></li>
+  
+  </div>
+
+    <div class="r-l"></div>
+    <div class="r-r">
+      <div class="head">
+        <div class="word">浏览记录</div>
+        
+          <a href="#" id="clean">全部清除</a>
+      
+      </div>
+    <!---暂时没有任何记录-->
+        <div class="image" style="display: flex;align-items: center;flex-direction: column;width: 100%;height: auto;">
+          <img src="../image/nohistory.png " style="width: 200px;height: 100px;display: flex;margin-top: 100px;opacity: 0.5;">
+        </div>
+        <ul class="lishiBox"></ul>
+    </div>
+</body>
+
+
+</html>

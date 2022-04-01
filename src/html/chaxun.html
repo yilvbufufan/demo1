@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_3184816_786p2zvhacv.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    <title>MP-正交表查询</title>
+</head>
+<style>
+
+    body{
+   
+        background-color:#0F0E11;
+        display: flex;
+    
+    }
+ 
+    .r-r{
+        min-width:110px; 
+        background-color:#141415;
+        border-radius: 10px;
+        margin: 10px 0px 10px 0px ;
+    }
+   .r-l{
+        flex: 1;
+        background-color:#141415;
+        margin:10px 10px 10px 40px ;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+    }
+
+
+/*tab*/
+.r-r .tabList{
+    list-style: none;
+    position: flex;
+    flex-direction: column;
+background-color: transparent;
+margin-top: 50px;
+}
+.r-r .tabList a{
+
+display: block;
+ text-decoration: none;
+ transform: translate(-50%,-50%);
+ padding: 6px 8px;
+ margin-bottom: 20px;
+ margin-left:55px;
+ border-radius: 5px;
+border: 1px solid #3DB8FF;
+color: #3DB8FF;
+background-color:transparent;
+ letter-spacing: 2px;
+ transition: 0.5s;
+ white-space: nowrap;
+
+}
+
+.r-r .tabList a:hover{
+    overflow: hidden;
+  background: linear-gradient(to right top,#4453fd,#3DB8FF); 
+  color:aliceblue;
+ 
+}
+.current:hover{
+    overflow: hidden;
+  background: linear-gradient(to right top,#4453fd,#3DB8FF); 
+  color:aliceblue;
+ 
+}
+
+</style>
+<body>
+  
+    <div class="subnav" z-index="999">
+        <ul>
+        <li><a href="../index.html?id=0"><i class="iconfont icon-home-fill"></i><span>返回首页</span></a></li>
+        <li><a href="./lishi.html?id=1"><i class="iconfont icon-lishixiao"></i><span>历史记录</span></a></li>
+        <li ><a href="./yongli.html?id=2" ><i class="iconfont icon-test-case-secondary"></i><span>用例生成</span></a></li>
+        <li ><a href="../html/chaxun.html?id=3"><i class="iconfont icon-chaxun"></i><span>正交表查询</span></a></li></li>
+        
+      </ul>
+  
+      </div>
+
+  
+        <div class="r-l">
+
+            <div class="tabCon" style="margin-top: 70px;">
+                <div class="video" style="display: block;">
+                    <video src="../video/video1.mp4" width="470" height="302" controls ></video>
+                </div>
+                <div class="video" style="display: none;">
+                   <video src="../video/video2.mp4" width="470" height="302" controls ></video>  
+                </div>
+                <div class="video" style="display: none;">
+                   <video src="../video/video1.mp4" width="470" height="302" controls ></video>
+                </div>
+            </div>
+        </div>
+
+        <div class="r-r">
+            <div class="tabList">
+                    <a  href="#">示例1</a>
+                    <a  href="#">示例2</a>
+                    <a  href="#">示例3</a>
+                  </div>
+                
+            </div>
+            </div>
+
+</body>
+
+<script>
+    //tab 排他展示
+    window.onload =function(){
+    var tabList = document.querySelector('.tabList')
+    var a = tabList.querySelectorAll('a')
+    var video = document.querySelectorAll('.video')
+    for (var i=0 ;i<a.length; i++){
+       
+        a[i].setAttribute('index',i)
+        a[i].onclick = function(){
+
+   
+    for (var i =0 ;i<a.length; i++){
+        a[i].className = '';
+    }
+    
+    this.className = 'current'
+
+
+    //显示相应的模块
+   var index = this.getAttribute('index')
+   for (var i=0; i<video.length; i++){
+        video[i].style.display ='none'
+   }
+   video[index].style.display = 'block'
+
+}}
+   
+
+}  
+
+</script>
+</html>

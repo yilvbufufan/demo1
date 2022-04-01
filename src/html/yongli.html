@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP-示范用例</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_3184816_786p2zvhacv.css">
+  </head>
+  <style>
+
+/*左右两端固定中间自适应布局*/
+
+   body{
+    background-color:#0f0e11;
+      
+        display: flex;
+    
+    }
+ 
+    .r-l{
+        min-width: 120px; 
+        background-color:#141415;
+    }
+   .r-m{
+        flex: 1;
+        /*#131118*/
+        background-color:#141415;
+        margin: 10px 10px 10px 13px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+       justify-content: center;
+        
+    }
+    .r-m .shangchuan{
+      flex: 1;
+     margin: 50px 70px 100px 70px;
+      height: 150px;
+        background-color:#434549;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+.r-m .dakai{
+/* margin: 100px 200px 50px 100px;*/
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 100px;
+margin-top: 80px;
+margin-bottom: 30px;
+}
+
+/*点击变亮色*/
+.r-m #open{
+  display: block;
+  text-decoration: none;
+  transform: translate(-50%,-50%);
+  padding: 10px 40px;
+  border-radius: 10px;
+  color: aliceblue;
+ background: linear-gradient(to right top ,#6333e9,#F571C5);
+  letter-spacing: 2px;
+  transition: 0.5s;
+  white-space: nowrap;
+}
+.r-m #open:hover{
+  box-shadow: 0 0 20px #F571C5;
+  opacity: 1;
+}
+    .r-r{
+      display: flex;
+      flex-direction: column;
+      background-color:#141415;
+      border-radius: 10px;
+      width:90px;
+     align-items:center;
+      margin-right:10px;
+      margin: 10px 0px 10px 0px ;
+    }
+    .r-r .btn{
+      margin-top: 30px;
+      width: 90px;
+      height: 200px;
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .r-r a{
+
+ display: block;
+  text-decoration: none;
+  transform: translate(-50%,-50%);
+  padding: 6px 10px;
+  margin-bottom: 20px;
+  margin-left:55px;
+  border-radius: 5px;
+border: 1px solid #3DB8FF;
+color: #3DB8FF;
+ background-color:transparent;
+  letter-spacing: 2px;
+  transition: 0.5s;
+  white-space: nowrap;
+
+}
+.r-r input{
+  opacity: 0;
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  float:right;
+  width: 55px;
+  height: 30px;
+
+}
+
+.r-r a:hover{
+  overflow: hidden;
+  background: linear-gradient(to right top,#4453fd,#3DB8FF); 
+  color:aliceblue;
+
+}
+
+  </style>
+
+<body>
+
+  <div class="subnav" z-index="999">
+    <ul>
+    <li><a href="../index.html?id=0"><i class="iconfont icon-home-fill"></i><span>返回首页</span></a></li>
+    <li><a href="./lishi.html?id=1"><i class="iconfont icon-lishixiao"></i><span>历史记录</span></a></li>
+    <li ><a href="./yongli.html?id=2" ><i class="iconfont icon-test-case-secondary"></i><span>用例生成</span></a></li>
+    <li ><a href="../html/chaxun.html?id=3"><i class="iconfont icon-chaxun"></i><span>正交表查询</span></a></li></li>
+   
+ 
+  </div>
+  <div class="r-l">
+  </div>
+
+  <div class="r-m">
+    <div class="shangchuan">
+   <img src="../image/shangchuan.png" alt="" id="chuan" style="display: block;">
+ <!--上传本地视频-->
+ <video id="video" src="" width="470" height="302" controls style="display: none;"></video> 
+    </div>
+      <div class="dakai"><a href="#" id="open">打开</a> </div>
+  
+  
+      <!-- <script>
+        var open = document.getElementById('open')
+        //打开摄像头
+        open.onclick = () => {
+            let constraints = {
+                // video属性设置
+                video:true,
+                // audio属性设置
+                audio: true
+            }
+            navigator.mediaDevices.getUserMedia(constraints)
+            .then(mediaStream => {
+                // 成功返回promise对象，接收一个mediaStream参数与video标签进行对接
+                document.getElementById('video').srcObject = mediaStream
+                document.getElementById('video').play()
+            })
+            }
+            //mediaStream可以传送
+          
+      </script>--> 
+    
+  </div>
+
+  <div class="r-r">
+    <div class="btn">
+
+    <a href="#">选择</a>
+     <input id="file" onchange="videoInput()" accept="video/*" multiple="" type="file">
+<script>
+  //上传并展示本地视频，本地视频可下载。非本地视频通过axios/js下载
+  var img = document.querySelector('img')
+  function videoInput(){
+      var file = document.getElementById('file').files[0];
+      var inputURL = URL.createObjectURL(file);
+      console.log(inputURL);
+      img.style.display = "none"
+      video.style.display="block",
+      video.src = inputURL;}
+  //url 为blob二进制文件形式，不是路径！
+
+  //传递文件到后台
+   /*axios({
+        method:'post',
+        url:'',
+        data:{
+          "name":"video",
+          "responsetype":blob,
+          "url":inputURL,
+          "timeout":1000,
+        }
+      }).then((res)=>{
+        console.log(res);
+      }).catch(function(error){
+         console.log(error)
+  })
+
+
+  //获取处理过的文件（blob？
+    axios.get('').then(Response=>{
+            console.log('get/', Response.data)
+          }).catch(function(error){
+         console.log(error)
+  })
+        var returnURL = Response.data
+        //自动json 到js的转化
+        //更改video.src =inputURL为returnURL，直接显示处理后的结果
+     }
+}*/
+
+</script>
+
+  <a href="#" id="save" >下载</a>
+
+
+<!--<script>
+
+
+//传递请求基本格式
+//传递视频数据给后台，见于json文件
+//暂无接口可以用json-server尝试发送请求
+ /*axios({
+        method:'post',
+        url:'',
+        data:{
+          "name":"video",
+          "url":inputURL,
+          "timeout":1000,
+        }
+      })
+
+
+
+//从后台获取完成的视频id
+save.onclick = function(){
+  axios.get('').then(Response=>{
+            console.log('get/', Response.data)
+          }).catch(function(error){
+         console.log(error)
+  })
+        var returnURL = Response.data
+        //自动json 到js的转化
+     }
+}
+
+  </script>---->
+  </body>
+
+
+</html>

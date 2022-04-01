@@ -1,0 +1,102 @@
+*{
+    padding: 0;
+    margin:0;
+  }
+  html,body{
+    width: 100%;
+    height:100%;
+    background-color: #0f0e11;
+  }
+
+
+  
+  .subnav{
+      width: 32px;
+      height:100vh;
+      left:0; 
+     position: fixed;
+     display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    /* background-color: #333;*/
+   /* background-color: #fff;*/
+   /*这个别改了*/
+   background-color:#121111;
+     overflow: hidden;
+  }
+  
+  .subnav ul li{
+    list-style: none;
+  }
+  
+  .subnav ul li a{
+    display: block;
+    position: relative;
+    height:100px;
+    width: 90vw;
+    line-height:40px;
+    border-radius: 10px;
+    transition: 0.3s ease-out;
+   /* color:#5f5d60;bai*/
+   /*备用*/
+  color:#3DB8FF;
+    text-decoration: none;
+    opacity:1;
+  }
+  
+  .subnav ul li a i{
+    font-size: 20px;
+    position: absolute;
+    margin: 30px 5px ;
+  
+  }
+   .subnav ul li a span{
+    position: relative;
+    top: 30px;
+    left: 40px;
+    font: 500 px '';
+    opacity: 0;
+    transform: 0.1s;
+  
+  }
+  .subnav:hover{
+    color:#ffffff;
+   /* color: #ab7ae0;*/
+    width:160px;
+    /*box-shadow: 10xp 10xp 6px #f6e6ff;白天*/  }
+    
+  .subnav:hover span{
+    opacity: 1;
+  }
+  .subnav:hover i{
+    opacity: 1;
+  }
+  
+  .subnav ul li a:hover{
+    /*background: linear-gradient(to right top ,#852aea,#a998f7);白天*/ 
+    background: linear-gradient(to right top ,#0B6DCE,#3ae3fd);
+    color: aliceblue;
+    opacity:1;
+  }
+  
+  
+  .left{
+    position: relative;
+    top:0;
+    left:0;
+  }
+  
+  #left-img{
+   display: block;
+    width: 160px;
+    height: 40px;
+   
+  }
+
+  .right{
+    flex:1
+  }
+
+  .right.img{
+    flex: 1;
+  }
